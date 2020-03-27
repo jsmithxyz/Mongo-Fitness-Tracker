@@ -1,12 +1,16 @@
-const express = require("express");
-const mongoose = require("mongoose");
+var path = require("path");
 
-const router = express.Router();
+module.exports = function(app) {
+    
+    app.get("/", (req, res) => {
+        res.sendFile(path.join(__dirname, "../public/index.html"));
+      });
 
-
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/fitness', { useNewUrlParser: true });
-
-router.get("/", (req, res) => {
-    res.status(200).sendFile("../html/index.html");
-})
-module.exports = router;
+    app.get("/exercise", (req, res) => {
+        res.sendFile(path.join(__dirname, "../public/exercise.html"));
+      });
+  
+    app.get("/stats", (req, res) => {
+      res.sendFile(path.join(__dirname, "../public/stats.html"));
+    });
+}

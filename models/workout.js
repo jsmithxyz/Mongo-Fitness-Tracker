@@ -28,6 +28,9 @@ const workoutSchema = new Schema({
       },
       reps: {
         type: Number
+      },
+      distance: {
+        type: Number
       }
 
       

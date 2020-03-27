@@ -20,7 +20,7 @@ mongoose.connect(MONGODB_URI, {
 
 const db = require("./models");
 
-// require("./routes/api-routes")(app);
+require("./routes/api-routes")(app);
 require("./routes/html-routes")(app);
 
 app.listen(PORT, () => {
